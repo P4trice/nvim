@@ -26,7 +26,7 @@ vmap < <gv
 vmap > >gv
 
 " center cursor on insert
-" autocmd InsertEnter * norm zz
+autocmd InsertEnter * norm zz
 
 " NERDTree
 nnoremap <silent> <leader>0 :NERDTreeToggle<cr>
