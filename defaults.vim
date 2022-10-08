@@ -27,3 +27,8 @@ set scrolloff=8
 set lcs=trail:•,tab:\ \ 
 set list
 set nohlsearch
+
+" vim wiki
+set nocompatible
+filetype plugin on
+syntax on

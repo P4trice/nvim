@@ -26,7 +26,7 @@ vmap < <gv
 vmap > >gv
 
 " center cursor on insert
-autocmd InsertEnter * norm zz
+" autocmd InsertEnter * norm zz
 
 " NERDTree
 nnoremap <silent> <leader>0 :NERDTreeToggle<cr>
@@ -76,3 +76,6 @@ nnoremap <c-t> <cmd>TagbarToggle<cr>
 
 " markdown preview
 nnoremap <c-p> <Plug>MarkdownPreviewToggle
+
+" goyo
+nnoremap <leader>qq :Goyo<cr>

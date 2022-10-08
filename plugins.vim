@@ -75,4 +75,10 @@ call plug#begin()
 	Plug 'rktjmp/lush.nvim' "dependency of zenbones
     Plug 'morhetz/gruvbox'
     Plug 'xiyaowong/nvim-transparent'
+
+    " vim wiki
+    Plug 'vimwiki/vimwiki'
+
+    " center text
+    Plug 'junegunn/goyo.vim'
 call plug#end()
