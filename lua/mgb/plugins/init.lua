@@ -42,4 +42,4 @@ require("tidy").setup({
 -- wilder
 require('wilder').setup({modes = {':', '/', '?'}})
 
-require("mgb.plugins.copilot")
+--require("mgb.plugins.copilot")
