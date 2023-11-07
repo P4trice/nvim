@@ -36,7 +36,6 @@ local plugins = {
     }
   },
   "nvim-treesitter/nvim-treesitter",
-  --"Pocco81/auto-save.nvim", --auto-saves a lot but can fuck with undotree. Commented out in mgb/init
   "windwp/nvim-autopairs",
   "windwp/nvim-ts-autotag",
   "williamboman/mason.nvim",
@@ -44,19 +43,15 @@ local plugins = {
   "neovim/nvim-lspconfig",
   "hrsh7th/nvim-cmp",
   "hrsh7th/cmp-nvim-lsp",
-  --"L3MON4D3/LuaSnip",
-  --"saadparwaiz1/cmp_luasnip",
   "rafamadriz/friendly-snippets",
   "nvim-lualine/lualine.nvim", -- customization of bottom line
   "nvim-lua/plenary.nvim", --
   "ThePrimeagen/harpoon",
-  --"github/copilot.vim", -- smarter autocompletion -> we know copilot
   "lewis6991/gitsigns.nvim",
   "kdheepak/lazygit.nvim",
   "ggandor/leap.nvim",
   "nvim-lua/popup.nvim",
   "jvgrootveld/telescope-zoxide",
-  --"kkharji/sqlite.lua",
   "AckslD/nvim-neoclip.lua",
   "mcauley-penney/tidy.nvim", -- deletes trailing spaces and empty lines at end of the file
   "rhysd/vim-clang-format", -- formatter for c-family of languages
@@ -64,8 +59,6 @@ local plugins = {
   "smithbm2316/centerpad.nvim", --:Centerpad allows to center the code
   "hrsh7th/cmp-buffer",
   "hrsh7th/cmp-path",
-  --"folke/todo-comments.nvim", -- allows for different TODOs: TODO;NOTES;FIX;HACK;PERF;WARNING. Commented out in mgb/init
-  --"goolord/alpha-nvim", -- better greeting screen. Commented out in mgb/init
   "gelguy/wilder.nvim", -- commandline completion
   "ellisonleao/gruvbox.nvim", -- colorscheme
   "mbbill/undotree",
