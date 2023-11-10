@@ -1,5 +1,4 @@
-require("mgb.lazy")
-require("mgb.nvim_default")
+require("mgb.opts")
 require("mgb.remaps")
+require("mgb.lazy")
 require("mgb.style")
-require("mgb.plugins")

@@ -1,10 +1,6 @@
 vim.g.mapleader = " "
 
--- undo
 vim.keymap.set("n", "U", "<c-r>")
-
-vim.keymap.set("n", "ü", "o<esc>")
-vim.keymap.set("n", "è", "O<esc>")
 
 -- splits
 vim.keymap.set("n", "<leader>wh", ":split<cr>")
@@ -20,7 +16,7 @@ vim.keymap.set("n", "<leader>l", "<c-w>l<cr>")
 vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
 
--- center screen 
+-- center screen
 vim.api.nvim_create_autocmd({ "InsertEnter" }, { command = "norm zz" })
 vim.keymap.set("n", "<c-d>", "<c-d>zz")
 vim.keymap.set("n", "<c-u>", "<c-u>zz")
@@ -41,3 +37,6 @@ vim.keymap.set("n", "<leader>co", "<cmd>copen<cr>")
 -- diagnostics
 vim.keymap.set("n", "<leader>fp", "<cmd>lua vim.diagnostic.goto_next()<cr>")
 vim.keymap.set("n", "<leader>fo", "<cmd>lua vim.diagnostic.goto_prev()<cr>")
+
+-- terminal
+vim.keymap.set("t", "<esc>", "<c-\\><c-n>")

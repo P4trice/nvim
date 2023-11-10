@@ -12,36 +12,127 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
+  -- themes
+  "daschw/leaf.nvim",
   {
-    "rose-pine/neovim", 
+    "rose-pine/neovim",
     name = "rose-pine"
   },
-  "nvim-tree/nvim-tree.lua",
-  "nvim-tree/nvim-web-devicons",
+  "ellisonleao/gruvbox.nvim",
+  "rebelot/kanagawa.nvim",
+
+  -- improve vim
+  "tpope/vim-surround",
   {
-    'nvim-telescope/telescope.nvim', tag = '0.1.1',
-    dependencies = { 'nvim-lua/plenary.nvim' }
+    "windwp/nvim-autopairs",
+    event = "InsertEnter",
+    opts = {}
   },
-  "nvim-treesitter/nvim-treesitter",
-  "Pocco81/auto-save.nvim",
-  "windwp/nvim-autopairs",
   "windwp/nvim-ts-autotag",
+  {
+    "ggandor/leap.nvim",
+    config = function()
+      require("leap").add_default_mappings()
+    end
+  },
+  {
+    "chentoast/marks.nvim",
+    config = function()
+      require("marks").setup({
+        mappings = {
+          next = "ms",
+          prev = "ma",
+        }
+      })
+    end
+  },
+
+  -- formatting
+  {
+    "prettier/vim-prettier",
+    config = function()
+      vim.keymap.set("n", "ü", "<cmd>Prettier<cr>")
+    end
+  },
+  {
+    "mcauley-penney/tidy.nvim",
+    opts = {
+      filetype_exclude = { "markdown", "diff" }
+    },
+  },
+
+  -- UI
+  {
+    "nvim-telescope/telescope.nvim",
+    tag = "0.1.4",
+    dependencies = { "nvim-lua/plenary.nvim" }
+  },
+  {
+    "nvim-tree/nvim-tree.lua",
+    dependencies = { "nvim-tree/nvim-web-devicons" }
+  },
+  {
+    "nvim-lualine/lualine.nvim",
+    config = function()
+      require("lualine").setup({
+        options = {
+          section_separators = { '', '' },
+          component_separators = { '', '' },
+        },
+      })
+    end
+  },
+  "romgrk/barbar.nvim",
+  {
+    "lewis6991/gitsigns.nvim",
+    config = function()
+      require("gitsigns").setup()
+    end
+  },
+  {
+    "folke/todo-comments.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+  },
+  {
+    -- start screen
+    "goolord/alpha-nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function()
+      require("alpha").setup(require("alpha.themes.startify").config)
+    end
+  },
+  {
+    "j-morano/buffer_manager.nvim",
+    config = function()
+      vim.keymap.set("n", "<c-b>", "<cmd>lua require('buffer_manager.ui').toggle_quick_menu()<cr>")
+    end
+  },
+
+  -- lsp and completion
+  {
+    "nvim-treesitter/nvim-treesitter",
+    config = function()
+      vim.cmd [[TSUpdate]]
+    end
+  },
+  "neovim/nvim-lspconfig",
+  "VonHeikemen/lsp-zero.nvim",
   "williamboman/mason.nvim",
   "williamboman/mason-lspconfig.nvim",
-  "neovim/nvim-lspconfig",
-  "hrsh7th/nvim-cmp",
-  "hrsh7th/cmp-nvim-lsp",
-  "L3MON4D3/LuaSnip",
-  "saadparwaiz1/cmp_luasnip",
-  "rafamadriz/friendly-snippets",
-  "nvim-lualine/lualine.nvim",
-  "nvim-lua/plenary.nvim",
-  "ThePrimeagen/harpoon",
-  "github/copilot.vim",
-  "simrat39/symbols-outline.nvim",
-  "sbdchd/neoformat",
-  "lewis6991/gitsigns.nvim",
-  "kdheepak/lazygit.nvim",
+  {
+    "nvimdev/lspsaga.nvim",
+    config = function()
+      require("lspsaga").setup({})
+    end,
+  },
+  {
+    "ms-jpq/coq_nvim",
+    branch = "coq",
+  },
+  {
+    "ms-jpq/coq.artifacts",
+    branch = "artifacts",
+  },
 }
 
 require("lazy").setup(plugins)
