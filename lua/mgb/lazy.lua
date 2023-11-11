@@ -125,14 +125,29 @@ local plugins = {
       require("lspsaga").setup({})
     end,
   },
+
+  -- completion
+  "hrsh7th/nvim-cmp",
+  "hrsh7th/cmp-buffer",
+  "hrsh7th/cmp-path",
+  "hrsh7th/cmp-nvim-lsp",
+  "hrsh7th/cmp-nvim-lua",
+
+  --{
+  --  "ms-jpq/coq_nvim",
+  --  branch = "coq",
+  --},
+  --{
+  --  "ms-jpq/coq.artifacts",
+  --  branch = "artifacts",
+  --},
+
+  -- snippets
   {
-    "ms-jpq/coq_nvim",
-    branch = "coq",
-  },
-  {
-    "ms-jpq/coq.artifacts",
-    branch = "artifacts",
-  },
+    "L3MON4D3/LuaSnip",
+    version = "v2.*",
+    build = "make install_jsregexp"
+  }
 }
 
 require("lazy").setup(plugins)
