@@ -46,6 +46,7 @@ local plugins = {
       })
     end
   },
+  "tpope/vim-fugitive",
 
   -- formatting
   {
@@ -107,6 +108,23 @@ local plugins = {
       vim.keymap.set("n", "<c-b>", "<cmd>lua require('buffer_manager.ui').toggle_quick_menu()<cr>")
     end
   },
+  {
+    "folke/trouble.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+  },
+  "gennaro-tedesco/nvim-peekup",
+  {
+    "NvChad/nvim-colorizer.lua",
+    config = function()
+      require("colorizer").setup()
+    end
+  },
+  {
+    'gelguy/wilder.nvim',
+    config = function()
+      require("wilder").setup({modes = {":", "/", "?"}})
+    end,
+  },
 
   -- lsp and completion
   {
@@ -122,7 +140,11 @@ local plugins = {
   {
     "nvimdev/lspsaga.nvim",
     config = function()
-      require("lspsaga").setup({})
+      require("lspsaga").setup({
+        outline = {
+          layout = "float"
+        }
+      })
     end,
   },
 
@@ -132,21 +154,25 @@ local plugins = {
   "hrsh7th/cmp-path",
   "hrsh7th/cmp-nvim-lsp",
   "hrsh7th/cmp-nvim-lua",
-
-  --{
-  --  "ms-jpq/coq_nvim",
-  --  branch = "coq",
-  --},
-  --{
-  --  "ms-jpq/coq.artifacts",
-  --  branch = "artifacts",
-  --},
+  "saadparwaiz1/cmp_luasnip",
+  {
+    "roobert/tailwindcss-colorizer-cmp.nvim",
+    config = function()
+      require("tailwindcss-colorizer-cmp").setup({
+        color_square_width = 2,
+      })
+    end
+  },
 
   -- snippets
   {
     "L3MON4D3/LuaSnip",
+    dependencies = { "rafamadriz/friendly-snippets" },
     version = "v2.*",
-    build = "make install_jsregexp"
+    build = "make install_jsregexp",
+    config = function()
+      require("luasnip.loaders.from_vscode").lazy_load()
+    end
   }
 }
 

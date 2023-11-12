@@ -1,1 +1,3 @@
-# Neovim config files
+# Neovim config
+
+![Neovim](nvim.png)
