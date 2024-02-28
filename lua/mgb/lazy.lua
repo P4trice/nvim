@@ -163,6 +163,7 @@ local plugins = {
       })
     end
   },
+  "github/copilot.vim",
 
   -- snippets
   {
