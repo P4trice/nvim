@@ -18,3 +18,7 @@ require("telescope").setup({
     },
   },
 })
+
+-- navigate extensions
+require("telescope").load_extension("navigate")
+vim.keymap.set('n', '<c-f>', ":lua require('telescope').extensions.navigate.select_session()<cr>", {})

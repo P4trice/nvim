@@ -28,13 +28,19 @@ end)
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
-  ensure_installed = { "tsserver", "rust_analyzer", "pyright", "tailwindcss" },
+  ensure_installed = { "tsserver", "rust_analyzer", "pyright", "tailwindcss", "gopls" },
   handlers = {
     lsp_zero.default_setup,
-    lua_ls = function()
-      local lua_opts = lsp_zero.nvim_lua_ls()
-      require('lspconfig').lua_ls.setup(lua_opts)
-    end,
+    -- gopls = function()
+    --   local lspconfig = require("lspconfig")
+    --   lspconfig.gopls.setup {
+    --     settings = {
+    --       gopls = {
+    --         preselect = false
+    --       }
+    --     }
+    --   }
+    -- end,
   }
 })
 
@@ -49,11 +55,12 @@ local cmp = require("cmp")
 local cmp_action = require("lsp-zero").cmp_action()
 
 cmp.setup({
+  preselect = cmp.PreselectMode.None,
   mapping = cmp.mapping.preset.insert({
     ["<CR>"] = cmp.mapping({
       i = function(fallback)
         if cmp.visible() and cmp.get_active_entry() then
-          cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
+          cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true })
         else
           fallback()
         end

@@ -30,12 +30,6 @@ local plugins = {
   },
   "windwp/nvim-ts-autotag",
   {
-    "ggandor/leap.nvim",
-    config = function()
-      require("leap").add_default_mappings()
-    end
-  },
-  {
     "chentoast/marks.nvim",
     config = function()
       require("marks").setup({
@@ -122,7 +116,7 @@ local plugins = {
   {
     'gelguy/wilder.nvim',
     config = function()
-      require("wilder").setup({modes = {":", "/", "?"}})
+      require("wilder").setup({ modes = { ":", "/", "?" } })
     end,
   },
 
@@ -141,9 +135,9 @@ local plugins = {
     "nvimdev/lspsaga.nvim",
     config = function()
       require("lspsaga").setup({
-        outline = {
-          layout = "float"
-        }
+        -- outline = {
+        --   layout = "float"
+        -- }
       })
     end,
   },
@@ -174,7 +168,50 @@ local plugins = {
     config = function()
       require("luasnip.loaders.from_vscode").lazy_load()
     end
-  }
+  },
+
+  {
+    'cameron-wags/rainbow_csv.nvim',
+    config = true,
+    ft = {
+      'csv',
+      'tsv',
+      'csv_semicolon',
+      'csv_whitespace',
+      'csv_pipe',
+      'rfc_csv',
+      'rfc_semicolon'
+    },
+    cmd = {
+      'RainbowDelim',
+      'RainbowDelimSimple',
+      'RainbowDelimQuoted',
+      'RainbowMultiDelim'
+    }
+  },
+
+  {
+    "Laellekoenig/telescope-navigate.nvim",
+    dependencies = { "nvim-telescope/telescope.nvim" }
+  },
+
+  {
+    "Laellekoenig/first.nvim",
+    config = function()
+      require("first").setup({
+        use_default_keymap = true
+      })
+    end
+  },
+
+  -- {
+  --   dir ="/Users/mgb/code/first.nvim",
+  --   config = function()
+  --     require("first").setup({
+  --       set_default_keymap = true
+  --     })
+  --   end
+  -- },
 }
 
 require("lazy").setup(plugins)
