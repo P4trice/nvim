@@ -29,17 +29,6 @@ local plugins = {
     opts = {}
   },
   "windwp/nvim-ts-autotag",
-  {
-    "chentoast/marks.nvim",
-    config = function()
-      require("marks").setup({
-        mappings = {
-          next = "ms",
-          prev = "ma",
-        }
-      })
-    end
-  },
   "tpope/vim-fugitive",
 
   -- formatting
@@ -59,12 +48,8 @@ local plugins = {
   -- UI
   {
     "nvim-telescope/telescope.nvim",
-    tag = "0.1.4",
+    tag = "0.1.6",
     dependencies = { "nvim-lua/plenary.nvim" }
-  },
-  {
-    "nvim-tree/nvim-tree.lua",
-    dependencies = { "nvim-tree/nvim-web-devicons" }
   },
   {
     "nvim-lualine/lualine.nvim",
@@ -89,14 +74,6 @@ local plugins = {
     dependencies = { "nvim-lua/plenary.nvim" },
   },
   {
-    -- start screen
-    "goolord/alpha-nvim",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    config = function()
-      require("alpha").setup(require("alpha.themes.startify").config)
-    end
-  },
-  {
     "j-morano/buffer_manager.nvim",
     config = function()
       vim.keymap.set("n", "<c-b>", "<cmd>lua require('buffer_manager.ui').toggle_quick_menu()<cr>")
@@ -106,7 +83,6 @@ local plugins = {
     "folke/trouble.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
   },
-  "gennaro-tedesco/nvim-peekup",
   {
     "NvChad/nvim-colorizer.lua",
     config = function()
@@ -114,10 +90,9 @@ local plugins = {
     end
   },
   {
-    'gelguy/wilder.nvim',
-    config = function()
-      require("wilder").setup({ modes = { ":", "/", "?" } })
-    end,
+    "stevearc/oil.nvim",
+    opts = {},
+    dependencies = { "nvim-tree/nvim-web-devicons" },
   },
 
   -- lsp and completion
@@ -191,27 +166,57 @@ local plugins = {
   },
 
   {
-    "Laellekoenig/telescope-navigate.nvim",
+    "Laellekoenig/telescope-navi.nvim",
     dependencies = { "nvim-telescope/telescope.nvim" }
   },
 
+  -- {
+  --   "Laellekoenig/first.nvim",
+  --   config = function()
+  --     require("first").setup({
+  --       use_default_keymap = true,            --set to false if you do not want to override f, F, ; and ,
+  --       use_delete_and_change = true,         --create remaps for df, cf, dF and dF
+  --       inclusive_forward_delete = false,     --delete first character of searched word?
+  --       inclusive_backward_delete = true,     --delete first character of searched word?
+  --     })
+  --   end
+  -- },
+
   {
-    "Laellekoenig/first.nvim",
+    dir = "/Users/mgb/code/first.nvim",
     config = function()
       require("first").setup({
-        use_default_keymap = true
+        use_default_keymap = true,
+        use_delete_and_change = true,
       })
     end
   },
 
   -- {
-  --   dir ="/Users/mgb/code/first.nvim",
+  --   "Laellekoenig/marky-mark.nvim",
+  --   dependencies = {
+  --     "MunifTanjim/nui.nvim"
+  --   },
   --   config = function()
-  --     require("first").setup({
-  --       set_default_keymap = true
+  --     require("marky-mark").setup({
+  --       use_default_keymap = true,
+  --       zz_after_jump = true,
+  --       popup_width = 35,
   --     })
   --   end
   -- },
+
+  {
+    dir = "/Users/mgb/code/marky-mark.nvim",
+    config = function()
+      require("marky-mark").setup()
+    end,
+    dependencies = {
+      "MunifTanjim/nui.nvim"
+    },
+  },
+
+  { "folke/neodev.nvim", opts = {} },
 }
 
 require("lazy").setup(plugins)

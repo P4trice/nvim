@@ -27,6 +27,9 @@ vim.keymap.set("n", "N", "Nzz")
 vim.keymap.set("v", "J", ":m '>+1<cr>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<cr>gv=gv")
 
+vim.keymap.set("v", "<leader>y", '"+y')
+vim.keymap.set("v", "<leader>d", '"_d')
+
 -- don't continue comments on newlines
 vim.api.nvim_create_autocmd({ "FileType" }, { command = "set formatoptions-=cro" })
 
@@ -40,3 +43,6 @@ vim.keymap.set("n", "<leader>fo", "<cmd>lua vim.diagnostic.goto_prev()<cr>")
 
 -- terminal
 vim.keymap.set("t", "<esc>", "<c-\\><c-n>")
+
+-- us keyboard alterations
+vim.keymap.set("n", "'", "$")
