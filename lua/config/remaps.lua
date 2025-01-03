@@ -1,6 +1,10 @@
 vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"
 
-vim.keymap.set("n", "U", "<c-r>")
+-- sourcing file
+vim.keymap.set("n", "<leader><leader>x", ":source %<cr>")
+vim.keymap.set("n", "<leader>x", ":.lua<cr>")
+vim.keymap.set("v", "<leader>x", ":lua<cr>")
 
 -- splits
 vim.keymap.set("n", "<leader>wh", ":split<cr>")
@@ -27,22 +31,18 @@ vim.keymap.set("n", "N", "Nzz")
 vim.keymap.set("v", "J", ":m '>+1<cr>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<cr>gv=gv")
 
+-- copy pasting
 vim.keymap.set("v", "<leader>y", '"+y')
 vim.keymap.set("v", "<leader>d", '"_d')
 
 -- don't continue comments on newlines
 vim.api.nvim_create_autocmd({ "FileType" }, { command = "set formatoptions-=cro" })
 
--- close quick fix list
-vim.keymap.set("n", "<leader>cc", "<cmd>cclose<cr>")
+-- quick fix
 vim.keymap.set("n", "<leader>co", "<cmd>copen<cr>")
+vim.keymap.set("n", "<leader>cc", "<cmd>cclose<cr>")
 
 -- diagnostics
+vim.keymap.set("n", "<M-d>", "<cmd>lua vim.diagnostic.setqflist()<cr>")
 vim.keymap.set("n", "<leader>fp", "<cmd>lua vim.diagnostic.goto_next()<cr>")
 vim.keymap.set("n", "<leader>fo", "<cmd>lua vim.diagnostic.goto_prev()<cr>")
-
--- terminal
-vim.keymap.set("t", "<esc>", "<c-\\><c-n>")
-
--- us keyboard alterations
-vim.keymap.set("n", "'", "$")
