@@ -22,6 +22,11 @@ return {
         preset = 'default',
         ["<tab>"] = { "select_next", "fallback" },
         ["<s-tab>"] = { "select_prev", "fallback" },
+        ["<cr>"] = {
+          "accept",
+          "snippet_forward",
+          "fallback"
+        },
       },
 
       appearance = {
