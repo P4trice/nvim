@@ -20,13 +20,10 @@ return {
       -- See the full "keymap" documentation for information on defining your own keymap.
       keymap = {
         preset = 'default',
-        ["<tab>"] = { "select_next", "fallback" },
-        ["<s-tab>"] = { "select_prev", "fallback" },
-        ["<cr>"] = {
-          "accept",
-          "snippet_forward",
-          "fallback"
-        },
+        ["<tab>"] = { "select_next", "snippet_forward", "fallback" },
+        ["<s-tab>"] = { "select_prev", "snippet_backward", "fallback" },
+        ["<cr>"] = { "accept", "fallback" },
+        ["<c-h>"] = { "show_documentation", "fallback" }
       },
 
       appearance = {
@@ -49,7 +46,10 @@ return {
 
       completion = {
         list = {
-          selection = "auto_insert",
+          selection = {
+            preselect = false,
+            auto_insert = true,
+          },
         },
       }
     },

@@ -41,6 +41,9 @@ vim.api.nvim_create_autocmd({ "FileType" }, { command = "set formatoptions-=cro"
 -- quick fix
 vim.keymap.set("n", "<leader>co", "<cmd>copen<cr>")
 vim.keymap.set("n", "<leader>cc", "<cmd>cclose<cr>")
+vim.keymap.set("n", "<leader>cc", "<cmd>cclose<cr>")
+vim.keymap.set("n", "<c-k>", "<cmd>cnext<cr>")
+vim.keymap.set("n", "<c-j>", "<cmd>cprev<cr>")
 
 -- diagnostics
 vim.keymap.set("n", "<M-d>", "<cmd>lua vim.diagnostic.setqflist()<cr>")
