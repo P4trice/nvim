@@ -13,6 +13,10 @@ return {
           -- Conform will run the first available formatter
           -- javascript = { "prettierd", "prettier", stop_after_first = true },
           swift = { "swiftformat" },
+          javascript = { "prettier" },
+          html = { "prettier" },
+          typescript = { "prettier" },
+          astro = { "prettier" },
         },
         format_on_save = {
           timeout_ms = 500,

@@ -11,7 +11,7 @@ return {
         -- for the current filetype
         require("lint").try_lint()
 
-        require("lint").try_lint("cspell")
+        -- require("lint").try_lint("cspell")
       end,
     })
   end
