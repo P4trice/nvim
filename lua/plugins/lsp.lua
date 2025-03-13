@@ -35,6 +35,14 @@ return {
         capabilities = capabilities
       }
 
+      config.tinymist.setup {
+        capabilities = capabilities,
+        settings = {
+          formatterMode = "typstyle",
+          projectResolution = "lockDatabase"
+        }
+      }
+
       config.ts_ls.setup {
         capabilities = capabilities
       }
