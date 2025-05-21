@@ -5,21 +5,25 @@ return {
     config = function()
       require("conform").setup({
         formatters_by_ft = {
-          -- lua = { "stylua" },
-          -- Conform will run multiple formatters sequentially
-          -- python = { "isort", "black" },
-          -- You can customize some of the format options for the filetype (:help conform.format)
-          -- rust = { "rustfmt", lsp_format = "fallback" },
-          -- Conform will run the first available formatter
-          -- javascript = { "prettierd", "prettier", stop_after_first = true },
           swift = { "swiftformat" },
           javascript = { "prettier" },
           html = { "prettier" },
           typescript = { "prettier" },
           astro = { "prettier" },
+          cs = { "csharpier" },
+        },
+        formatters = {
+          csharpier = {
+            inherit = false,
+            command = vim.fn.expand("~/.dotnet/tools/csharpier"),
+            args = { "format", "$FILENAME" },
+            stdin = false,
+            cwd = require("conform.util").root_file({ "sln", "csproj" }),
+          },
         },
         format_on_save = {
-          timeout_ms = 500,
+          timeout_ms = 1000,
+          lsp_fallback = true,
           lsp_format = "fallback",
         },
       })

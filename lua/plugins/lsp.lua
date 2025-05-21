@@ -4,17 +4,17 @@ return {
     dependencies = {
       {
         "folke/lazydev.nvim",
-        ft = "lua", -- only load on lua files
+        ft = "lua",
         opts = {
           library = {
-            -- See the configuration section for more details
-            -- Load luvit types when the `vim.uv` word is found
             { path = "${3rd}/luv/library", words = { "vim%.uv" } },
           },
         },
       },
       'saghen/blink.cmp',
+      { "Hoffs/omnisharp-extended-lsp.nvim" }, -- ✅ add this line
     },
+
     config = function()
       local config = require("lspconfig")
       local capabilities = require("blink.cmp").get_lsp_capabilities()
@@ -46,6 +46,26 @@ return {
       config.ts_ls.setup {
         capabilities = capabilities
       }
+
+      local pid = vim.fn.getpid()
+
+      require('lspconfig').omnisharp.setup({
+        cmd = {
+          "dotnet",
+          vim.fn.expand("~/tools/omnisharp-roselyn/OmniSharp.dll"),
+          "--languageserver",
+          "--hostPID",
+          tostring(pid)
+        },
+        enable_editorconfig_support = true,
+        enable_roslyn_analyzers = false,
+        organize_imports_on_format = true,
+        enable_import_completion = true,
+        handlers = {
+          ["textDocument/definition"] = require("omnisharp_extended").handler,
+        },
+      })
+
 
       -- keybinds
       vim.keymap.set("n", "rn", vim.lsp.buf.rename)

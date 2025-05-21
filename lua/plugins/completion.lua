@@ -51,6 +51,12 @@ return {
             auto_insert = true,
           },
         },
+        trigger = {
+          show_on_trigger_character = true,
+          -- Optionally, set a list of characters that will not trigger the completion window,
+          -- even when sources request it. The following are the defaults:
+          show_on_blocked_trigger_characters = { ' ', '\n', '\t' }
+        }
       }
     },
     opts_extend = { "sources.default" }
