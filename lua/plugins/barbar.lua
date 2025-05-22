@@ -18,9 +18,9 @@ return {
       vim.keymap.set("n", "<leader>3", "<cmd>BufferGoto 3<cr>")
       vim.keymap.set("n", "<leader>4", "<cmd>BufferGoto 4<cr>")
       vim.keymap.set("n", "<leader>5", "<cmd>BufferGoto 5<cr>")
-      vim.keymap.set("n", "<leader>6", "<cmd>BufferGoto 5<cr>")
-      vim.keymap.set("n", "<leader>7", "<cmd>BufferGoto 5<cr>")
-      vim.keymap.set("n", "<leader>8", "<cmd>BufferGoto 5<cr>")
+      vim.keymap.set("n", "<leader>6", "<cmd>BufferGoto 6<cr>")
+      vim.keymap.set("n", "<leader>7", "<cmd>BufferGoto 7<cr>")
+      vim.keymap.set("n", "<leader>8", "<cmd>BufferGoto 8<cr>")
       vim.keymap.set("n", "<leader>i", "<cmd>BufferPick<cr>")
       vim.g.barbar_auto_setup = false
     end
